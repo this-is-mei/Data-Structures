@@ -1,1 +1,19 @@
+void getHeight(Node *root,int height,int *max){
+    if(root){
+        if(!root->left && !root->right){
+            if(height+1 > *max){
+                *max = height+1;
+            }
+        }
+        getHeight(root->left,height+1,max);
+        getHeight(root->right,height+1,max);
+    }
+}
+
+int height(Node* node)
+{
+    int max=0;
+   getHeight(node,0,&max);
+   return max;
+}
 
